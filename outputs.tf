@@ -1,9 +1,19 @@
 output "sandbox_vpc_id" {
   value       = aws_vpc.sandbox_vpc.id
-  description = "The unique tracking reference identifier for the virtual cloud boundary"
+  description = "VPC ID for the lab boundary."
 }
 
-output "target_host_public_ip" {
-  value       = aws_instance.detection_host.public_ip
-  description = "The dynamic routing address assigned to our attack simulation node"
+output "sandbox_subnet_id" {
+  value       = aws_subnet.sandbox_subnet.id
+  description = "Subnet ID for the detection subnet."
+}
+
+output "security_group_id" {
+  value       = aws_security_group.sandbox_sg.id
+  description = "Security group ID for the sandbox firewall."
+}
+
+output "target_host_private_ip" {
+  value       = aws_instance.detection_host.private_ip
+  description = "Private IP assigned to the lab target host."
 }
